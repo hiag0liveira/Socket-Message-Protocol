@@ -1,42 +1,41 @@
-# Projeto de Comunicação Servidor-Cliente
+# Server-Client Communication Project
 
-Este projeto consiste em um servidor de comunicação TCP implementado em Node.js utilizando sockets para comunicação em tempo real entre clientes e o servidor, proporcionando uma experiência interativa. Foi criado um protocolo personalizado simples nomeado de PTMP (Protocolo de Transferencia de Mensagem Personalizado). Além disso, o servidor implementa um handler de requisições HTTP simples que responde a solicitações GET com uma mensagem padrão.
+This project consists of a TCP communication server implemented in Node.js using sockets for real-time communication between clients and the server, providing an interactive experience. A simple custom protocol named PTMP (Personalized Message Transfer Protocol) was created. Additionally, the server implements a simple HTTP request handler that responds to GET requests with a standard message.
 
-## Funcionalidades
-### Servidor
+## Features
+### Server
 
-O servidor escuta conexões na porta especificada e em todas as interfaces disponíveis.
-Mensagens enviadas por um cliente são distribuídas para todos os outros clientes conectados, junto com a identificação do remetente.
-Ele pode lidar com solicitações HTTP GET e responder com uma mensagem padrão.
+- The server listens for connections on the specified port and all available interfaces.
+- Messages sent by a client are distributed to all other connected clients, along with the sender's identification.
+- It can handle HTTP GET requests and respond with a standard message.
 
-### Cliente
+### Client
 
-O cliente se conecta ao servidor na porta especificada (por padrão, 4000) e em localhost.
-Solicita que o usuário digite um nome e envia para o servidor.
-Após enviar o nome, o cliente pode enviar mensagens que serão transmitidas para outros clientes conectados.
+- The client connects to the server on the specified port (default is 4000) and localhost.
+- It prompts the user to enter a name and sends it to the server.
+- After sending the name, the client can send messages that will be broadcasted to other connected clients.
 
-### Protocolo Personalizado (PTMP)
+### Custom Protocol (PTMP)
 
-Implementado para permitir a troca de mensagens entre clientes conectados ao servidor.
-Cada mensagem enviada contém o nome do remetente e a mensagem em si.
+- Implemented to enable message exchange between clients connected to the server.
+- Each message sent contains the sender's name and the message itself.
 
+## How to Use
 
-## Como Usar
+### Server Configuration:
 
-### Configuração do Servidor:
+Run `node server.js` to start the server.
 
-Execute node server.js para iniciar o servidor.
+### Client Configuration:
 
-### Configuração do Cliente:
+Run `node client.js` to start a client.
+Enter a name when prompted.
+After sending the name, you can start sending messages.
 
-Execute node client.js para iniciar um cliente.
-Insira um nome quando solicitado.
-Após enviar o nome, você pode começar a enviar mensagens.
+### HTTP Request:
 
-### Solicitação HTTP:
+Use a browser or a tool like Postman to send an HTTP GET request to `http://localhost:4000`.
 
-Use um navegador ou uma ferramenta como Postman para enviar uma solicitação HTTP GET para http://localhost:4000.
+### Shutting Down the Server:
 
-### Encerramento do Servidor:
-
-O servidor pode ser encerrado pressionando Ctrl+C. Isso desconectará todos os clientes antes de fechar.
+The server can be shut down by pressing Ctrl+C. This will disconnect all clients before closing.
